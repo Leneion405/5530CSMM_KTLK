@@ -1,0 +1,81 @@
+blockquote {
+    background-color: #33E6E6;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: -10px 0px 0px #808080;
+    color: #333;
+    margin: auto;
+    position: relative;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid #808080;
+}
+
+blockquote:before,
+blockquote:after {
+    content: '“';
+    font-size: 4em;
+    color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+}
+
+blockquote:before {
+    top: -15px;
+    left: 15px;
+    content: '“';
+}
+
+blockquote:after {
+    content: '”';
+    bottom: 18%;
+    right: 2%;
+}
+
+/* Quote text styling */
+blockquote p {
+    margin: 0;
+    font-size: 1.8em;
+    word-wrap: break-word;
+}
+
+/* Author styling */
+blockquote p:last-child {
+    text-align: right;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.8em;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    blockquote {
+        padding: 20px;
+    }
+
+    blockquote p {
+        font-size: 1.3em;
+    }
+
+    blockquote:before,
+    blockquote:after {
+        font-size: 3em;
+    }
+blockquote p:last-child {
+    font-size: 1.3em;
+}
+
+}   
+
+.author-font{
+    font-family: 'Bebas Neue', sans-serif;
+}
+.quote-font{
+    font-family: 'Neuton', serif;
+
+}
