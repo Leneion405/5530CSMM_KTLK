@@ -1,16 +1,22 @@
 <?php
 require_once './dbinfo.php';
 session_start();
-require_once './checkdate.php';
+$date = date('Y-m-d');
 
 
 $happiness = htmlspecialchars($_POST['happiness']);
-$anx = $_POST['anx'];
+$anx = htmlspecialchars($_POST['anx']);
 $workloadmanagement = htmlspecialchars($_POST['workloadmanagement']);
 $user_id = $_SESSION['user_id'];
 
+$query = "SELECT * FROM score WHERE user_id = ? AND date = ?;";
 
-if ($check) {
+$stmt = $conn->prepare($query);
+$stmt->bind_param("is", $user_id, $date);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
     $stmt = $conn->prepare("UPDATE score SET happiness = ?, anxiety = ? , workloadmanagement = ? WHERE user_id = ? AND date = curdate();");
     $stmt->bind_param("iiii", $happiness, $anx, $workloadmanagement, $user_id);
 } else {

@@ -1,3 +1,7 @@
+<?php
+
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,18 +74,8 @@
     <div class="container">
 
         <?php
-        require_once '../api/checkdate.php';
+        require_once '../api/showscore.php';
 
-
-        if (!$check) {
-            echo "<div class='card my-3'>
-            <div class='row text-center'>
-            <div class='card-body col-12'><h2>Give Score for Today</h2></div>
-            </div></div>";
-        } else {
-
-            require_once '../api/showscore.php';
-        }
         ?>
         <form action="../api/rating_data.php" method="post">
             <!-- row-cols-xl-3 -->

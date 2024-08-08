@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../library/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {
+        index = () => {
+          var today = new Date();
+          var day = Math.ceil(
+            (today - new Date(today.getFullYear(), 0, 1)) / 86400000
+          );
+          index = day - 119;
+          return index;
+        };
+        $.getJSON("quotes.json", function (data) {
+          result = data.quotes[index()];
+
+          $("").text(result.quote);
+          $("").text(result.author);
+        });
+      });
+    </script>
+  </body>
+</html>

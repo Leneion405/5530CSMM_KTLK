@@ -51,7 +51,7 @@
             <input class="form-control me-0" type="search" placeholder="Search Quote" aria-label="Search">
             <button class='btn btn-dark'><i class="fa-solid fa-magnifying-glass"></i> </button>
           </div>
-          <button class="btn btn-outline-danger ">Logout</button>
+          <a type="button" class="btn btn-outline-danger" href='../api/logout.php'>Logout</a>
         </form>
       </div>
     </div>
